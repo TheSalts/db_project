@@ -1,0 +1,31 @@
+/club_project_backend
+|
+|-- /app                   <-- 우리 메인 소스코드 폴더
+|   |
+|   |-- /api               <-- 기능별 API 블루프린트 모음
+|   |   |-- __init__.py
+|   |   |-- auth_api.py      # (예: /api/auth/login, /api/auth/register)
+|   |   |-- club_api.py      # (예: /api/club/list, /api/club/<id>)
+|   |   |-- post_api.py      # (예: /api/club/<id>/post)
+|   |   |-- apply_api.py     # (예: /api/apply/submit, /api/apply/manage)
+|   |   |-- mypage_api.py    # (예: /api/mypage/info, /api/mypage/clubs)
+|   |
+|   |-- /services          <-- 실제 DB 쿼리(PyMySQL) 로직 모음
+|   |   |-- __init__.py
+|   |   |-- auth_service.py
+|   |   |-- club_service.py
+|   |   |-- ...
+|   |
+|   |-- /utils             <-- 공통 헬퍼 기능
+|   |   |-- __init__.py
+|   |   |-- db.py            # PyMySQL 커넥션 풀(Pool) 설정
+|   |   |-- auth_decorator.py  # JWT 토큰 유효성 검사 데코레이터
+|   |
+|   |-- __init__.py        # Flask 앱(app)을 생성 (create_app 함수)
+|   |-- config.py          # .env 파일에서 설정값 불러오기
+|
+|-- run.py                 <-- 서버 실행 파일 (python run.py)
+|
+|-- requirements.txt       <-- 설치할 파이썬 라이브러리 목록
+|-- .env                   <-- [중요] DB 비번, JWT 키 (Git에 올리면 안 됨!)
+|-- .gitignore             <-- Git에 올리지 않을 파일 목록 (e.g., .env)

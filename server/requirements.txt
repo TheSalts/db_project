@@ -1,0 +1,9 @@
+Flask==3.0.0
+PyMySQL==1.1.0
+PyJWT==2.8.0
+python-dotenv
+Flask-CORS
+bcrypt  # <-- 비밀번호 암호화용
+
+
+#pip install -r requirements.txt <--설치
