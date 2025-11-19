@@ -178,6 +178,99 @@
 - **인증**: 필요 (JWT 토큰, Role='관리자')
 - **응답**: 200 OK (통계 정보), 403 Forbidden, 500 Internal Server Error
 
+#### `POST /api/admin/clubs`
+- **기능**: 새 동아리 생성 (사이트 관리자 전용)
+- **인증**: 필요 (JWT 토큰, Role='관리자')
+- **요청 본문**: 
+  ```json
+  {
+    "Club_name": "string (required)",
+    "Club_Introduction": "string (optional)",
+    "Category": "string (optional)",
+    "Admin": "string (required, 관리자 학번)"
+  }
+  ```
+- **응답**: 201 Created, 400 Bad Request, 403 Forbidden, 404 Not Found, 500 Internal Server Error
+
+---
+
+## 서버 설정 및 실행
+
+### 1. 환경 변수 설정 (.env)
+
+서버 실행 전 `.env` 파일을 생성하고 다음 환경 변수를 설정하세요:
+
+```env
+# 데이터베이스 설정
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_password
+DB_NAME=club_db
+
+# JWT 설정
+JWT_SECRET_KEY=your_secret_key
+
+# 서버 설정
+FLASK_ENV=development
+PORT=5000
+```
+
+- **PORT**: 서버 포트 번호 (기본값: 5000)
+- **FLASK_ENV**: `development` 또는 `production`
+
+### 2. 데이터베이스 초기화
+
+서버 실행 전 데이터베이스를 초기화해야 합니다:
+
+```bash
+# MySQL 서버가 실행 중인지 확인
+mysql -u root -p
+
+# 자동 초기화 스크립트 실행 (권장)
+python init.py
+```
+
+**`init.py` 스크립트는 자동으로:**
+- ✅ DB 상태를 체크하고 필요한 작업만 수행
+- ✅ `club_db` 데이터베이스 생성 (없으면)
+- ✅ 모든 테이블 생성 (없으면)
+- ✅ 샘플 데이터 삽입 (없으면)
+- ✅ 기존 데이터가 있으면 건너뛰기
+
+**추가 옵션:**
+```bash
+python init.py --skip-sample  # 샘플 데이터 없이 초기화
+python init.py --force        # 기존 데이터 삭제 후 재생성
+python init.py --help         # 도움말 보기
+```
+
+**샘플 데이터 (기본 포함):**
+- 학생 18명 (사이트 관리자 1명, 동아리 관리자 12명, 일반 학생 5명)
+- 동아리 12개 (학술 4개, 예술 4개, 스포츠 2개, 봉사 2개)
+- 게시글 7개, 동아리 소속 20건, 가입 신청 4건
+
+**테스트 계정:**
+- 사이트 관리자: `admin` / `password123`
+- 일반 학생: `student01` / `password123`
+- 동아리 관리자: `cod_admin` / `password123`
+
+**수동 초기화 (고급 사용자):**
+```bash
+python init_db.py              # 테이블만 생성
+python init_sample_data.py     # 샘플 데이터만 삽입
+# 또는
+mysql -u root -p < init_db.sql
+mysql -u root -p club_db < init_sample_data.sql
+```
+
+### 3. 서버 실행
+
+```bash
+python run.py
+```
+
+서버가 설정된 포트(기본 5000)에서 실행됩니다.
+
 ---
 
 ## 인증 방식

@@ -134,3 +134,35 @@ def get_my_clubs_route():
         return jsonify(clubs), 200
     else:
         return jsonify({"error": "동아리 목록을 가져오는 데 실패했습니다."}), 500
+    
+@mypage_bp.route('/comments', methods=['GET'])
+@login_required
+def get_my_comments_route():
+    """(GET) 내가 작성한 댓글 목록 조회 (로그인 필수)
+    
+    로그인한 학생이 작성한 모든 댓글을 조회합니다.
+    댓글이 달린 원본 동아리 이름(Club_name)도 함께 반환됩니다.
+    
+    Header:
+        Authorization: Bearer <JWT_TOKEN>
+
+    Returns:
+        200 OK: [
+            {
+                "Comment_ID": 1,
+                "Content": "좋은 공지네요!",
+                "created_at": "2025-11-19T10:01:00",
+                "Post_ID": 1,
+                "Club_ID": 1,
+                "Club_name": "멋쟁이코더"
+            }, ...
+        ]
+        500 Internal Server Error: {"error": "..."}
+    """
+    student_id = g.user['Student_ID']
+    comments = mypage_service.get_my_comments(student_id)
+    
+    if comments is not None:
+        return jsonify(comments), 200
+    else:
+        return jsonify({"error": "댓글 목록을 가져오는 데 실패했습니다."}), 500

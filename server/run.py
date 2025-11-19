@@ -4,10 +4,9 @@ from app import create_app
 
 app = create_app()
 
-# .env 파일에서 FLASK_ENV 값을 가져오거나, 없으면 'development'
-# debug=True는 FLASK_ENV가 'development'일 때 자동으로 켜짐.
+# .env 파일에서 설정 값 가져오기
 env = os.environ.get('FLASK_ENV', 'development')
-port = 5000
+port = int(os.environ.get('PORT', 5000))
 
 if __name__ == '__main__':
     print("=====================================================")

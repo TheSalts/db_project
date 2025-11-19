@@ -38,4 +38,8 @@ def create_app():
     from app.api import admin_api
     app.register_blueprint(admin_api.admin_bp)
 
+    from app.api import comment_api
+    app.register_blueprint(comment_api.comment_post_bp)
+    app.register_blueprint(comment_api.comment_manage_bp)
+
     return app

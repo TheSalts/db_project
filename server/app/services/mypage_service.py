@@ -154,3 +154,38 @@ def get_my_clubs(student_id):
     finally:
         if cursor: cursor.close()
         if conn: conn.close()
+
+def get_my_comments(student_id):
+    """(마이페이지) 내가 작성한 댓글 목록 조회"""
+    conn = None
+    cursor = None
+    
+    # Comment, Post, Club 테이블을 JOIN하여 댓글 정보와 동아리 이름 가져옴
+    sql = """
+        SELECT 
+            c.Comment_ID,
+            c.Content,
+            c.created_at,
+            c.Post_ID,
+            p.Club_ID,
+            cl.Club_name
+        FROM Comment c
+        JOIN Post p ON c.Post_ID = p.Post_ID
+        JOIN Club cl ON p.Club_ID = cl.Club_ID
+        WHERE c.Student_ID = %s
+        ORDER BY c.created_at DESC
+    """
+    
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, (student_id,))
+        comments = cursor.fetchall()
+        return comments
+        
+    except Exception as e:
+        print(f"내 댓글 목록 조회 오류: {e}")
+        return None
+    finally:
+        if cursor: cursor.close()
+        if conn: conn.close()
