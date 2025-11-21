@@ -6,9 +6,19 @@
 
 ## 설치 방법
 
-- Python 및 nodejs(npm)이 설치되어 있어야 합니다.
+- Python 3.8+ 및 Node.js 18.0.0+가 설치되어 있어야 합니다.
 
-`server/.env` 파일 작성
+- MySQL 서버가 실행 중이여야 합니다.
+
+프로젝트 루트 폴더에서 아래 명령어 실행
+
+```bash
+npm install
+npm run setup
+npm start
+```
+
+`server/.env` 파일은 `npm run setup` 시에 자동으로 생성되며, 필요한 경우 수정해주세요
 
 ```env
 # .env
@@ -26,16 +36,6 @@ DB_NAME=club_db
 # JWT
 JWT_SECRET_KEY=our-project-super-secret-key-123
 ```
-
-### macOS & Linux
-
-`setup.sh` 실행 후 `start.sh` 실행
-
-### Windows
-
-`setup.bat` 실행 후 `start.bat` 실행
-
-- `.bat` 파일은 테스트되지 않음
 
 ## 샘플 데이터 계정 정보
 
