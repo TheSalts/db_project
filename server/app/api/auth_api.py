@@ -3,7 +3,7 @@ import jwt
 import datetime
 import bcrypt
 from flask import Blueprint, request, jsonify, current_app
-from app.services import auth_service # 서비스 레이어 임포트
+from app.services import auth_service
 
 # 블루프린트 생성 (/api/auth 로 시작하는 URL)
 auth_bp = Blueprint('auth', __name__, url_prefix='/api/auth')
@@ -48,6 +48,7 @@ def register():
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
+    print(">>> 로그인 요청 수신됨") # 디버깅용 로그
     """로그인 API"""
     """(POST) 학생 로그인
 
@@ -84,14 +85,21 @@ def login():
     
     if bcrypt.checkpw(password_encoded, hashed_password_from_db):
         # 3. 로그인 성공: JWT 토큰 생성
+        expiration_hours = current_app.config.get('JWT_EXPIRATION_HOURS', 24)
         payload = {
             'Student_ID': user['Student_ID'],
-            'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=1) # 1시간 유효
+            'iat': datetime.datetime.now(datetime.timezone.utc),  # 발급 시간
+            'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=expiration_hours)
         }
         secret = current_app.config['JWT_SECRET_KEY']
-        token = jwt.encode(payload, secret, algorithm='HS256')
+        algorithm = current_app.config.get('JWT_ALGORITHM', 'HS256')
+        token = jwt.encode(payload, secret, algorithm=algorithm)
         
-        return jsonify({"message": "로그인 성공!", "token": token}), 200
+        return jsonify({
+            "message": "로그인 성공!", 
+            "token": token,
+            "expires_in": expiration_hours * 3600  # 초 단위로 만료 시간 반환
+        }), 200
     else:
         # 비밀번호 불일치
         return jsonify({"error": "비밀번호가 일치하지 않습니다."}), 401

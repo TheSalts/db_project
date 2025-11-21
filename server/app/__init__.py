@@ -1,5 +1,5 @@
 # app/__init__.py
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS
 from app.config import Config
 
@@ -11,8 +11,9 @@ def create_app():
     # 1. 설정 로드 (config.py의 Config 클래스)
     app.config.from_object(Config)
     
-    # 2. CORS 설정 (모든 도메인에서의 요청 허용)
-    CORS(app) 
+    # 2. CORS 설정 (모든 출처 허용)
+    # 프론트엔드 프록시를 사용하므로 백엔드는 모든 요청을 허용해도 안전합니다.
+    CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True) 
     
     # 3. 블루프린트(API) 등록
     from app.api import auth_api

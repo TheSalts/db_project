@@ -121,6 +121,7 @@ DB_USER=root
 DB_PASSWORD=root
 DB_NAME=club_db
 JWT_SECRET_KEY=your_secret_key_change_this_in_production
+JWT_EXPIRATION_HOURS=24
 FLASK_ENV=development
 PORT=5000
 `;

@@ -14,5 +14,7 @@ class Config:
     DB_PASSWORD = os.environ.get('DB_PASSWORD')
     DB_NAME = os.environ.get('DB_NAME', 'club_db')
     
-    # JWT 비밀 키
+    # JWT 설정
     JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY', 'default_secret_key')
+    JWT_ALGORITHM = 'HS256'
+    JWT_EXPIRATION_HOURS = int(os.environ.get('JWT_EXPIRATION_HOURS', '24'))  # 기본 24시간

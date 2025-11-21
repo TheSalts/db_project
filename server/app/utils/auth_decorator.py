@@ -28,7 +28,8 @@ def login_required(f):
         # 2. 토큰 디코딩 (유효성 검사)
         try:
             secret = current_app.config['JWT_SECRET_KEY']
-            payload = jwt.decode(token, secret, algorithms=['HS256'])
+            algorithm = current_app.config.get('JWT_ALGORITHM', 'HS256')
+            payload = jwt.decode(token, secret, algorithms=[algorithm])
             
             # g (Flask의 context)에 유저 정보 저장
             # 이제 이 요청을 처리하는 동안 g.user로 Student_ID를 꺼낼 수 있음

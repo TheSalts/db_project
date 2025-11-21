@@ -6,44 +6,44 @@ USE `club_db`;
 -- 샘플 학생 데이터 (관리자 포함)
 -- 사이트 관리자
 INSERT INTO `Student` (`Student_ID`, `Login_ID`, `Pw`, `Name`, `phone_num`, `Email`, `Role`) VALUES
-('20240001', 'admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '김관리', '010-1234-5678', 'admin@tukorea.ac.kr', '관리자');
+('20240001', 'admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김관리', '010-1234-5678', 'admin@tukorea.ac.kr', '관리자');
 
 -- 동아리 관리자들 (사회분과)
 INSERT INTO `Student` (`Student_ID`, `Login_ID`, `Pw`, `Name`, `phone_num`, `Email`, `Role`) VALUES
-('20240101', 'nanum_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '최봉사', '010-1111-1111', 'nanum@tukorea.ac.kr', '일반'),
-('20240102', 'rotaract_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '김로타', '010-1111-2222', 'rotaract@tukorea.ac.kr', '일반'),
-('20240103', 'masil_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '이마실', '010-1111-3333', 'masil@tukorea.ac.kr', '일반'),
-('20240104', 'ccc_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '박씨씨', '010-1111-4444', 'ccc@tukorea.ac.kr', '일반'),
-('20240105', 'ouiparfum_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '정향수', '010-1111-5555', 'ouiparfum@tukorea.ac.kr', '일반'),
-('20240106', 'thetiki_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '강티키', '010-1111-6666', 'thetiki@tukorea.ac.kr', '일반');
+('20240101', 'nanum_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '최봉사', '010-1111-1111', 'nanum@tukorea.ac.kr', '일반'),
+('20240102', 'rotaract_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김로타', '010-1111-2222', 'rotaract@tukorea.ac.kr', '일반'),
+('20240103', 'masil_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이마실', '010-1111-3333', 'masil@tukorea.ac.kr', '일반'),
+('20240104', 'ccc_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '박씨씨', '010-1111-4444', 'ccc@tukorea.ac.kr', '일반'),
+('20240105', 'ouiparfum_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '정향수', '010-1111-5555', 'ouiparfum@tukorea.ac.kr', '일반'),
+('20240106', 'thetiki_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '강티키', '010-1111-6666', 'thetiki@tukorea.ac.kr', '일반');
 
 -- 동아리 관리자들 (학술분과)
 INSERT INTO `Student` (`Student_ID`, `Login_ID`, `Pw`, `Name`, `phone_num`, `Email`, `Role`) VALUES
-('20240111', 'seabueong_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '김알고', '010-2222-1111', 'seabueong@tukorea.ac.kr', '일반'),
-('20240112', 'aram_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '이아람', '010-2222-2222', 'aram@tukorea.ac.kr', '일반'),
-('20240113', 'teamnc_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '박엔써', '010-2222-3333', 'teamnc@tukorea.ac.kr', '일반'),
-('20240114', 'hyeium_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '최혜윰', '010-2222-4444', 'hyeium@tukorea.ac.kr', '일반'),
-('20240115', 'cir_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '정써클', '010-2222-5555', 'cir@tukorea.ac.kr', '일반'),
-('20240116', 'ham_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '강햄', '010-2222-6666', 'ham@tukorea.ac.kr', '일반');
+('20240111', 'seabueong_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김알고', '010-2222-1111', 'seabueong@tukorea.ac.kr', '일반'),
+('20240112', 'aram_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이아람', '010-2222-2222', 'aram@tukorea.ac.kr', '일반'),
+('20240113', 'teamnc_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '박엔써', '010-2222-3333', 'teamnc@tukorea.ac.kr', '일반'),
+('20240114', 'hyeium_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '최혜윰', '010-2222-4444', 'hyeium@tukorea.ac.kr', '일반'),
+('20240115', 'cir_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '정써클', '010-2222-5555', 'cir@tukorea.ac.kr', '일반'),
+('20240116', 'ham_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '강햄', '010-2222-6666', 'ham@tukorea.ac.kr', '일반');
 
 -- 동아리 관리자들 (체육분과)
 INSERT INTO `Student` (`Student_ID`, `Login_ID`, `Pw`, `Name`, `phone_num`, `Email`, `Role`) VALUES
-('20240121', 'dungkids_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '김덩크', '010-3333-1111', 'dungkids@tukorea.ac.kr', '일반'),
-('20240122', 'sansaram_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '이등산', '010-3333-2222', 'sansaram@tukorea.ac.kr', '일반'),
-('20240123', 'santakgu_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '박탁구', '010-3333-3333', 'santakgu@tukorea.ac.kr', '일반'),
-('20240124', 'seoseong_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '최서핑', '010-3333-4444', 'seoseong@tukorea.ac.kr', '일반'),
-('20240125', 'winners_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '정승리', '010-3333-5555', 'winners@tukorea.ac.kr', '일반'),
-('20240126', 'teamfight_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '강파이', '010-3333-6666', 'teamfight@tukorea.ac.kr', '일반'),
-('20240127', 'insane_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '김인세', '010-3333-7777', 'insane@tukorea.ac.kr', '일반'),
-('20240128', 'wing_admin', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '이윙', '010-3333-8888', 'wing@tukorea.ac.kr', '일반');
+('20240121', 'dungkids_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김덩크', '010-3333-1111', 'dungkids@tukorea.ac.kr', '일반'),
+('20240122', 'sansaram_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이등산', '010-3333-2222', 'sansaram@tukorea.ac.kr', '일반'),
+('20240123', 'santakgu_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '박탁구', '010-3333-3333', 'santakgu@tukorea.ac.kr', '일반'),
+('20240124', 'seoseong_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '최서핑', '010-3333-4444', 'seoseong@tukorea.ac.kr', '일반'),
+('20240125', 'winners_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '정승리', '010-3333-5555', 'winners@tukorea.ac.kr', '일반'),
+('20240126', 'teamfight_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '강파이', '010-3333-6666', 'teamfight@tukorea.ac.kr', '일반'),
+('20240127', 'insane_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김인세', '010-3333-7777', 'insane@tukorea.ac.kr', '일반'),
+('20240128', 'wing_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이윙', '010-3333-8888', 'wing@tukorea.ac.kr', '일반');
 
 -- 일반 학생들
 INSERT INTO `Student` (`Student_ID`, `Login_ID`, `Pw`, `Name`, `phone_num`, `Email`, `Role`) VALUES
-('20240201', 'student01', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '김학생', '010-1234-0001', 'student01@tukorea.ac.kr', '일반'),
-('20240202', 'student02', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '이학생', '010-1234-0002', 'student02@tukorea.ac.kr', '일반'),
-('20240203', 'student03', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '박학생', '010-1234-0003', 'student03@tukorea.ac.kr', '일반'),
-('20240204', 'student04', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '최학생', '010-1234-0004', 'student04@tukorea.ac.kr', '일반'),
-('20240205', 'student05', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5Y5KAQoYL6d3u', '정학생', '010-1234-0005', 'student05@tukorea.ac.kr', '일반');
+('20240201', 'student01', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김학생', '010-1234-0001', 'student01@tukorea.ac.kr', '일반'),
+('20240202', 'student02', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이학생', '010-1234-0002', 'student02@tukorea.ac.kr', '일반'),
+('20240203', 'student03', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '박학생', '010-1234-0003', 'student03@tukorea.ac.kr', '일반'),
+('20240204', 'student04', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '최학생', '010-1234-0004', 'student04@tukorea.ac.kr', '일반'),
+('20240205', 'student05', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '정학생', '010-1234-0005', 'student05@tukorea.ac.kr', '일반');
 
 -- 비밀번호: 모두 'password123' (bcrypt 해시)
 
