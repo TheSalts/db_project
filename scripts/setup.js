@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const readline = require('readline');
 
 const isWindows = process.platform === 'win32';
 const serverDir = path.join(__dirname, '..', 'server');
@@ -106,36 +107,60 @@ function checkPip(pythonInfo) {
 }
 
 /**
+ * 사용자 입력 받기
+ */
+function question(rl, query) {
+  return new Promise((resolve) => {
+    rl.question(query, resolve);
+  });
+}
+
+/**
  * 환경 변수 파일 확인 및 생성
  */
-function checkEnvFile() {
+async function checkEnvFile() {
   console.log('\n[1/6] 환경 변수 설정 확인...');
   const envPath = path.join(serverDir, '.env');
 
   if (!fs.existsSync(envPath)) {
-    console.log('⚠️  .env 파일이 없습니다. 기본 설정으로 생성합니다...');
+    console.log('⚠️  .env 파일이 없습니다. MySQL 계정 정보를 입력해주세요.\n');
 
-    // 기본 .env 파일 내용
-    const defaultEnvContent = `DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=root
-DB_NAME=club_db
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
+
+    try {
+      const dbHost = await question(rl, 'MySQL 호스트 (기본값: localhost): ') || 'localhost';
+      const dbUser = await question(rl, 'MySQL 사용자명 (기본값: root): ') || 'root';
+      const dbPassword = await question(rl, 'MySQL 비밀번호: ');
+      const dbName = await question(rl, '데이터베이스 이름 (기본값: club_db): ') || 'club_db';
+
+      rl.close();
+
+      if (!dbPassword) {
+        console.error('❌ MySQL 비밀번호는 필수입니다.');
+        process.exit(1);
+      }
+
+      const envContent = `DB_HOST=${dbHost}
+DB_USER=${dbUser}
+DB_PASSWORD=${dbPassword}
+DB_NAME=${dbName}
 JWT_SECRET_KEY=your_secret_key_change_this_in_production
 JWT_EXPIRATION_HOURS=24
 FLASK_ENV=development
 PORT=5000
 `;
 
-    try {
-      fs.writeFileSync(envPath, defaultEnvContent, 'utf8');
-      console.log('✓ .env 파일이 생성되었습니다.');
-      console.log('  기본 설정:');
-      console.log('    DB_USER=root');
-      console.log('    DB_PASSWORD=root');
-      console.log('    DB_HOST=localhost');
-      console.log('    DB_NAME=club_db');
+      fs.writeFileSync(envPath, envContent, 'utf8');
+      console.log('\n✓ .env 파일이 생성되었습니다.');
+      console.log(`  DB_HOST=${dbHost}`);
+      console.log(`  DB_USER=${dbUser}`);
+      console.log(`  DB_NAME=${dbName}`);
       console.log('\n  프로덕션 환경에서는 JWT_SECRET_KEY를 변경하세요!');
     } catch (error) {
+      rl.close();
       console.error('❌ .env 파일 생성 실패:', error.message);
       process.exit(1);
     }
@@ -279,7 +304,7 @@ function installClientDeps() {
 /**
  * 메인 실행 함수
  */
-function main() {
+async function main() {
   console.log('======================================================================');
   console.log('🚀 동아리 플랫폼 자동 설정을 시작합니다...');
   console.log('======================================================================');
@@ -302,7 +327,7 @@ function main() {
     console.error('하지만 가상환경 생성이 실패할 경우 위의 설치 방법을 참고하세요.\n');
   }
 
-  checkEnvFile();
+  await checkEnvFile();
   setupPythonVenv(pythonInfo);
   installPythonDeps();
   initDatabase();
