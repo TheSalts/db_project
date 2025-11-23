@@ -50,8 +50,9 @@ def get_club_by_id(club_id):
             c.Club_name, 
             c.Club_Introduction, 
             c.Category, 
-            c.Admin AS Admin_StudentID,  -- 관리자 학번
-            s.Name AS Admin_Name        -- 관리자 이름
+            c.Admin,                      -- 관리자 학번 (기존 필드)
+            c.Admin AS Admin_StudentID,   -- 관리자 학번 (명시적)
+            s.Name AS Admin_Name          -- 관리자 이름
         FROM Club c
         LEFT JOIN Student s ON c.Admin = s.Student_ID
         WHERE c.Club_ID = %s

@@ -3,7 +3,7 @@
  */
 
 import axios from "axios";
-import type { Student, Club, Post, Application, Membership, Statistics, LoginRequest, RegisterRequest } from "../types";
+import type { Student, Club, Post, Application, Membership, Statistics, LoginRequest, RegisterRequest, Comment, ApplicationStatus } from "../types";
 
 // API Base URL 설정
 // VITE_API_BASE_URL 환경 변수가 있으면 사용(배포 시 등), 없으면 기본적으로 '/api' 사용 (Vite 프록시)
@@ -104,6 +104,11 @@ export const applyAPI = {
         });
         return response.data;
     },
+
+    getStatus: async (clubId: number) => {
+        const response = await api.get<ApplicationStatus>(`/apply/status/${clubId}`);
+        return response.data;
+    },
 };
 
 // ===== 게시글 API =====
@@ -165,6 +170,26 @@ export const adminAPI = {
 
     createClub: async (data: { Club_name: string; Club_Introduction?: string; Category?: string; Admin: string }) => {
         const response = await api.post("/admin/clubs", data);
+        return response.data;
+    },
+};
+
+// ===== 댓글 API =====
+export const commentAPI = {
+    getByPostId: async (postId: number) => {
+        const response = await api.get<Comment[]>(`/post/${postId}/comments`);
+        return response.data;
+    },
+
+    create: async (postId: number, content: string) => {
+        const response = await api.post(`/post/${postId}/comment`, {
+            Content: content,
+        });
+        return response.data;
+    },
+
+    delete: async (commentId: number) => {
+        const response = await api.delete(`/comment/${commentId}`);
         return response.data;
     },
 };

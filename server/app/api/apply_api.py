@@ -117,3 +117,36 @@ def update_application(application_id):
         if "존재" in message:
             return jsonify({"error": message}), 404 # 404 Not Found
         return jsonify({"error": message}), 500
+
+@apply_bp.route('/status/<int:club_id>', methods=['GET'])
+@login_required # [학생] 가입 신청 상태 확인 (로그인 필수)
+def get_application_status(club_id):
+    """(GET) 특정 동아리 가입 신청 상태 확인 (학생)
+    
+    로그인한 학생이 특정 club_id의 동아리에 대한 본인의 가입 신청 상태를 조회합니다.
+    
+    Header:
+        Authorization: Bearer <JWT_TOKEN>
+
+    Returns:
+        200 OK: {
+            "has_applied": false  # 신청 내역 없음
+        }
+        또는
+        {
+            "has_applied": true,
+            "application_id": 1,
+            "status": "대기" | "승인" | "거절",
+            "application_date": "2025-11-18T11:00:00",
+            "is_member": true | false  # Belong 테이블에 회원으로 등록되어 있는지
+        }
+        500 Internal Server Error: {"error": "..."}
+    """
+    student_id = g.user['Student_ID']
+    
+    status_info, message = apply_service.get_application_status(student_id, club_id)
+    
+    if status_info is not None:
+        return jsonify(status_info), 200
+    else:
+        return jsonify({"error": message}), 500

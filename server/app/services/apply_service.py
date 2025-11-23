@@ -128,3 +128,53 @@ def update_application_status(application_id, status, request_student_id):
     finally:
         if cursor: cursor.close()
         if conn: conn.close()
+
+def get_application_status(student_id, club_id):
+    """학생의 특정 동아리 가입 신청 상태를 확인합니다."""
+    conn = None
+    cursor = None
+    
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        # 1. 해당 학생의 특정 동아리 신청 상태 조회
+        sql = """
+            SELECT 
+                Application_ID,
+                Status,
+                Application_Date
+            FROM Apply
+            WHERE Student_ID = %s AND Club_ID = %s
+            ORDER BY Application_Date DESC
+            LIMIT 1
+        """
+        cursor.execute(sql, (student_id, club_id))
+        application = cursor.fetchone()
+        
+        if not application:
+            # 신청 내역 없음
+            return {"has_applied": False}, "조회 성공"
+        
+        # 2. Belong 테이블에서 회원 여부 확인 (승인된 경우 Belong에 추가됨)
+        cursor.execute(
+            "SELECT Membership_ID FROM Belong WHERE Student_ID = %s AND Club_ID = %s",
+            (student_id, club_id)
+        )
+        membership = cursor.fetchone()
+        
+        return {
+            "has_applied": True,
+            "application_id": application['Application_ID'],
+            "status": application['Status'],
+            "application_date": application['Application_Date'],
+            "is_member": membership is not None
+        }, "조회 성공"
+        
+    except Exception as e:
+        print(f"신청 상태 조회 오류: {e}")
+        return None, "서버 오류 발생"
+        
+    finally:
+        if cursor: cursor.close()
+        if conn: conn.close()

@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const readline = require('readline');
+const crypto = require("crypto");
 
 const isWindows = process.platform === 'win32';
 const serverDir = path.join(__dirname, '..', 'server');
@@ -147,10 +148,10 @@ async function checkEnvFile() {
 DB_USER=${dbUser}
 DB_PASSWORD=${dbPassword}
 DB_NAME=${dbName}
-JWT_SECRET_KEY=your_secret_key_change_this_in_production
+JWT_SECRET_KEY=${crypto.randomBytes(32).toString('base64')}
 JWT_EXPIRATION_HOURS=24
 FLASK_ENV=development
-PORT=5000
+PORT=8000
 `;
 
       fs.writeFileSync(envPath, envContent, 'utf8');
