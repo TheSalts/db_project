@@ -12,7 +12,7 @@ import "./AuthPage.css";
  * 정규식 검증 함수
  */
 const validateStudentID = (id: string): boolean => {
-    return /^\d{11}$/.test(id);
+    return /^\d{10}$/.test(id);
 };
 
 const validatePhoneNumber = (phone: string): boolean => {
@@ -53,7 +53,7 @@ const RegisterPage = () => {
 
         // 학번 형식 검증
         if (!validateStudentID(formData.Student_ID)) {
-            setError("학번은 11자리 숫자여야 합니다. (예: 2024156001)");
+            setError("학번은 10자리 숫자여야 합니다. (예: 2024156001)");
             return;
         }
 
@@ -119,9 +119,9 @@ const RegisterPage = () => {
                                 className="input"
                                 value={formData.Student_ID}
                                 onChange={handleChange}
-                                placeholder="11자리 숫자 (예: 2024156001)"
-                                pattern="\d{11}"
-                                title="11자리 숫자를 입력하세요"
+                                placeholder="10자리 숫자 (예: 2024156001)"
+                                pattern="\d{10}"
+                                title="10자리 숫자를 입력하세요"
                                 required
                             />
                         </div>
