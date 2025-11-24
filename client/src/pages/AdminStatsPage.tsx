@@ -107,7 +107,7 @@ const AdminStatsPage = () => {
 
                 <div className="stats-grid">
                     <div className="stat-card stat-card-primary">
-                        <div className="stat-icon">사용자</div>
+                        <div className="stat-icon">👥</div>
                         <div className="stat-content">
                             <h3 className="stat-title">전체 학생 수</h3>
                             <p className="stat-value">{stats.total_students}명</p>
@@ -115,7 +115,7 @@ const AdminStatsPage = () => {
                     </div>
 
                     <div className="stat-card stat-card-success">
-                        <div className="stat-icon">동아리</div>
+                        <div className="stat-icon">🎭</div>
                         <div className="stat-content">
                             <h3 className="stat-title">전체 동아리 수</h3>
                             <p className="stat-value">{stats.total_clubs}개</p>
@@ -123,7 +123,7 @@ const AdminStatsPage = () => {
                     </div>
 
                     <div className="stat-card stat-card-warning">
-                        <div className="stat-icon">신청</div>
+                        <div className="stat-icon">📝</div>
                         <div className="stat-content">
                             <h3 className="stat-title">대기 중인 신청</h3>
                             <p className="stat-value">{stats.pending_applications}건</p>
