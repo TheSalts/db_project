@@ -11,7 +11,7 @@ interface ErrorMessageProps {
 const ErrorMessage = ({ message }: ErrorMessageProps) => {
   return (
     <div className="error-message">
-      <span className="error-icon">⚠️</span>
+      <span className="error-icon">!</span>
       <p className="error-text">{message}</p>
     </div>
   );

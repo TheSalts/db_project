@@ -35,7 +35,7 @@ const HomePage = () => {
           <h2 className="section-title">주요 기능</h2>
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-icon">🔍</div>
+              <div className="feature-icon">검색</div>
               <h3 className="feature-title">동아리 탐색</h3>
               <p className="feature-description">
                 카테고리별로 다양한 동아리를 찾아보고 상세 정보를 확인할 수 있습니다.
@@ -43,7 +43,7 @@ const HomePage = () => {
             </div>
 
             <div className="feature-card">
-              <div className="feature-icon">📝</div>
+              <div className="feature-icon">글쓰기</div>
               <h3 className="feature-title">간편한 가입 신청</h3>
               <p className="feature-description">
                 원하는 동아리에 클릭 한 번으로 가입 신청을 할 수 있습니다.
@@ -51,7 +51,7 @@ const HomePage = () => {
             </div>
 
             <div className="feature-card">
-              <div className="feature-icon">👥</div>
+              <div className="feature-icon">그룹</div>
               <h3 className="feature-title">동아리 관리</h3>
               <p className="feature-description">
                 동아리 관리자는 회원과 게시글을 손쉽게 관리할 수 있습니다.
@@ -59,7 +59,7 @@ const HomePage = () => {
             </div>
 
             <div className="feature-card">
-              <div className="feature-icon">📊</div>
+              <div className="feature-icon">통계</div>
               <h3 className="feature-title">실시간 현황</h3>
               <p className="feature-description">
                 내 신청 현황과 가입한 동아리 정보를 실시간으로 확인할 수 있습니다.
@@ -74,7 +74,7 @@ const HomePage = () => {
           <div className="container">
             <div className="cta-card">
               <h2 className="cta-title">
-                안녕하세요, {user.Name}님! 👋
+                안녕하세요, {user.Name}님!
               </h2>
               <p className="cta-description">
                 새로운 동아리를 탐색하거나 마이페이지에서 활동 현황을 확인해보세요.

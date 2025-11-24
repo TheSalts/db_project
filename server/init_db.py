@@ -77,9 +77,9 @@ def execute_sql_file(cursor, filepath):
         if statement:
             try:
                 cursor.execute(statement)
-                print(f"✓ 실행 완료: {statement[:50]}...")
+                print(f"실행 완료: {statement[:50]}...")
             except Exception as e:
-                print(f"✗ 오류 발생: {statement[:50]}...")
+                print(f"오류 발생: {statement[:50]}...")
                 print(f"  에러 메시지: {e}")
 
 def init_database():
@@ -89,7 +89,7 @@ def init_database():
     config = get_db_config()
     
     print("=" * 60)
-    print("🗄️  데이터베이스 초기화를 시작합니다...")
+    print("데이터베이스 초기화를 시작합니다...")
     print("=" * 60)
     
     try:
@@ -97,16 +97,16 @@ def init_database():
         connection = pymysql.connect(**config)
         cursor = connection.cursor()
         
-        print(f"\n📡 MySQL 서버에 연결되었습니다. (호스트: {config['host']})")
+        print(f"\nMySQL 서버에 연결되었습니다. (호스트: {config['host']})")
         
         # SQL 파일 경로
         sql_file_path = os.path.join(os.path.dirname(__file__), 'init_db.sql')
         
         if not os.path.exists(sql_file_path):
-            print(f"\n❌ SQL 파일을 찾을 수 없습니다: {sql_file_path}")
+            print(f"\nSQL 파일을 찾을 수 없습니다: {sql_file_path}")
             return
         
-        print(f"\n📄 SQL 파일을 읽는 중: {sql_file_path}")
+        print(f"\nSQL 파일을 읽는 중: {sql_file_path}")
         print("\n" + "=" * 60)
         print("SQL 구문 실행 중...")
         print("=" * 60 + "\n")
@@ -118,7 +118,7 @@ def init_database():
         connection.commit()
         
         print("\n" + "=" * 60)
-        print("✅ 데이터베이스 초기화가 완료되었습니다!")
+        print("데이터베이스 초기화가 완료되었습니다!")
         print("=" * 60)
         
         # 생성된 테이블 확인
@@ -126,23 +126,23 @@ def init_database():
         cursor.execute("SHOW TABLES")
         tables = cursor.fetchall()
         
-        print("\n📋 생성된 테이블 목록:")
+        print("\n생성된 테이블 목록:")
         for table in tables:
             table_name = list(table.values())[0]
             print(f"   - {table_name}")
         
-        print("\n💡 이제 'python run.py' 명령으로 서버를 실행할 수 있습니다.\n")
+        print("\n이제 'python run.py' 명령으로 서버를 실행할 수 있습니다.\n")
         
     except pymysql.err.OperationalError as e:
-        print(f"\n❌ 데이터베이스 연결 실패:")
+        print(f"\n데이터베이스 연결 실패:")
         print(f"   {e}")
-        print("\n💡 확인 사항:")
+        print("\n확인 사항:")
         print("   1. MySQL 서버가 실행 중인지 확인하세요.")
         print("   2. .env 파일의 데이터베이스 설정을 확인하세요.")
         print("   3. 데이터베이스 사용자의 권한을 확인하세요.")
         
     except Exception as e:
-        print(f"\n❌ 오류 발생: {e}")
+        print(f"\n오류 발생: {e}")
         connection.rollback()
         
     finally:
@@ -150,7 +150,7 @@ def init_database():
             cursor.close()
         if connection:
             connection.close()
-            print("\n🔌 데이터베이스 연결이 종료되었습니다.\n")
+            print("\n데이터베이스 연결이 종료되었습니다.\n")
 
 if __name__ == '__main__':
     init_database()

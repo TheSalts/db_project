@@ -171,7 +171,7 @@ INSERT INTO `Comment` (`Post_ID`, `Student_ID`, `Content`, `created_at`) VALUES
 (10, '20240204', '등산 초보도 괜찮을까요?', NOW() - INTERVAL 20 HOUR),
 (10, '20240122', '초보자도 환영합니다! 천천히 올라가요.', NOW() - INTERVAL 15 HOUR);
 
-SELECT '✅ 샘플 데이터가 성공적으로 삽입되었습니다!' AS 'Status';
+SELECT '샘플 데이터가 성공적으로 삽입되었습니다!' AS 'Status';
 SELECT CONCAT('총 ', COUNT(*), '개의 동아리가 생성되었습니다.') AS 'Clubs' FROM `Club`;
 SELECT CONCAT('총 ', COUNT(*), '명의 학생이 등록되었습니다.') AS 'Students' FROM `Student`;
 SELECT CONCAT('총 ', COUNT(*), '개의 게시글이 생성되었습니다.') AS 'Posts' FROM `Post`;

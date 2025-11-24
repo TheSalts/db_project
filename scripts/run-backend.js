@@ -18,7 +18,7 @@ function runBackend() {
       stdio: 'inherit'
     });
   } catch (error) {
-    console.error('❌ 백엔드 서버 실행 실패.');
+    console.error('백엔드 서버 실행 실패.');
     process.exit(1);
   }
 }

@@ -63,7 +63,7 @@ def check_data_exists(cursor):
 
 def execute_sql_file(cursor, filepath, description):
     """SQL 파일을 읽고 실행합니다."""
-    print(f"\n📄 {description}...")
+    print(f"\n{description}...")
     
     with open(filepath, 'r', encoding='utf-8') as file:
         sql_content = file.read()
@@ -116,14 +116,14 @@ def execute_sql_file(cursor, filepath, description):
             except Exception as e:
                 # INSERT IGNORE 등으로 중복 에러는 무시
                 if 'Duplicate entry' not in str(e):
-                    print(f"   ⚠️  경고: {str(e)[:80]}")
+                    print(f"   경고: {str(e)[:80]}")
     
-    print(f"   ✓ {success_count}개 구문 실행 완료")
+    print(f"   {success_count}개 구문 실행 완료")
     return success_count > 0
 
 def print_statistics(cursor):
     """현재 데이터 통계를 출력합니다."""
-    print("\n📊 현재 데이터베이스 상태:")
+    print("\n현재 데이터베이스 상태:")
     
     cursor.execute("SELECT COUNT(*) as count FROM Student")
     student_count = cursor.fetchone()['count']
@@ -155,7 +155,7 @@ def init_database():
     db_name = os.environ.get('DB_NAME', 'club_db')
     
     print("=" * 70)
-    print("🗄️  동아리 플랫폼 데이터베이스 초기화")
+    print("동아리 플랫폼 데이터베이스 초기화")
     print("=" * 70)
     
     try:
@@ -163,48 +163,48 @@ def init_database():
         connection = pymysql.connect(**config)
         cursor = connection.cursor()
         
-        print(f"\n📡 MySQL 서버에 연결되었습니다. (호스트: {config['host']})")
+        print(f"\nMySQL 서버에 연결되었습니다. (호스트: {config['host']})")
         
         # 1. 데이터베이스 존재 확인
         db_exists = check_database_exists(cursor, db_name)
         
         if db_exists:
-            print(f"\n✓ 데이터베이스 '{db_name}'가 이미 존재합니다.")
+            print(f"\n데이터베이스 '{db_name}'가 이미 존재합니다.")
             cursor.execute(f"USE {db_name}")
             
             # 테이블 존재 확인
             tables_exist = check_tables_exist(cursor)
             
             if tables_exist:
-                print("✓ 테이블이 이미 존재합니다.")
+                print("테이블이 이미 존재합니다.")
                 
                 # 데이터 존재 확인
                 data_exists = check_data_exists(cursor)
                 
                 if data_exists:
                     if force:
-                        print("\n⚠️  --force 옵션: 기존 데이터를 삭제하고 재생성합니다.")
+                        print("\n--force 옵션: 기존 데이터를 삭제하고 재생성합니다.")
                         # 테이블 재생성을 위해 스키마 재실행
                         sql_file = os.path.join(os.path.dirname(__file__), 'init_db.sql')
                         execute_sql_file(cursor, sql_file, "테이블 재생성 중")
                         connection.commit()
                     else:
-                        print("✓ 데이터가 이미 존재합니다.")
-                        print("\n💡 기존 데이터베이스를 사용합니다.")
+                        print("데이터가 이미 존재합니다.")
+                        print("\n기존 데이터베이스를 사용합니다.")
                         print_statistics(cursor)
-                        print("\n⚠️  초기화하려면 --force 옵션을 사용하세요:")
+                        print("\n초기화하려면 --force 옵션을 사용하세요:")
                         print("   python init.py --force")
                         return
                 else:
-                    print("ℹ️  데이터가 없습니다. 샘플 데이터를 생성합니다.")
+                    print("데이터가 없습니다. 샘플 데이터를 생성합니다.")
             else:
-                print("ℹ️  테이블이 없습니다. 테이블을 생성합니다.")
+                print("테이블이 없습니다. 테이블을 생성합니다.")
                 # 스키마 생성
                 sql_file = os.path.join(os.path.dirname(__file__), 'init_db.sql')
                 execute_sql_file(cursor, sql_file, "테이블 생성 중")
                 connection.commit()
         else:
-            print(f"\nℹ️  데이터베이스 '{db_name}'가 없습니다. 새로 생성합니다.")
+            print(f"\n데이터베이스 '{db_name}'가 없습니다. 새로 생성합니다.")
             # 스키마 생성
             sql_file = os.path.join(os.path.dirname(__file__), 'init_db.sql')
             execute_sql_file(cursor, sql_file, "데이터베이스 및 테이블 생성 중")
@@ -214,7 +214,7 @@ def init_database():
         # 2. 샘플 데이터 삽입 (skip_sample이 아닌 경우)
         if not skip_sample:
             print("\n" + "=" * 70)
-            print("📊 샘플 데이터 생성")
+            print("샘플 데이터 생성")
             print("=" * 70)
             
             sample_file = os.path.join(os.path.dirname(__file__), 'init_sample_data.sql')
@@ -223,37 +223,37 @@ def init_database():
                 execute_sql_file(cursor, sample_file, "샘플 데이터 삽입 중")
                 connection.commit()
             else:
-                print("⚠️  샘플 데이터 파일을 찾을 수 없습니다.")
+                print("샘플 데이터 파일을 찾을 수 없습니다.")
         else:
-            print("\n⏭️  샘플 데이터 삽입을 건너뜁니다. (--skip-sample)")
+            print("\n샘플 데이터 삽입을 건너뜁니다. (--skip-sample)")
         
         # 3. 최종 통계 출력
         print("\n" + "=" * 70)
-        print("✅ 데이터베이스 초기화가 완료되었습니다!")
+        print("데이터베이스 초기화가 완료되었습니다!")
         print("=" * 70)
         
         print_statistics(cursor)
         
         if not skip_sample:
-            print("\n💡 테스트 계정:")
+            print("\n테스트 계정:")
             print("   - 사이트 관리자: admin / password123")
             print("   - 일반 학생: student01 / password123")
             print("   - 동아리 관리자: cod_admin / password123")
         
-        print("\n🚀 이제 서버를 실행할 수 있습니다:")
+        print("\n이제 서버를 실행할 수 있습니다:")
         print("   python run.py\n")
         
     except pymysql.err.OperationalError as e:
-        print(f"\n❌ 데이터베이스 연결 실패:")
+        print(f"\n데이터베이스 연결 실패:")
         print(f"   {e}")
-        print("\n💡 확인 사항:")
+        print("\n확인 사항:")
         print("   1. MySQL 서버가 실행 중인지 확인하세요.")
         print("   2. .env 파일의 데이터베이스 설정을 확인하세요.")
         print("      - DB_HOST, DB_USER, DB_PASSWORD, DB_NAME")
         print("   3. 데이터베이스 사용자의 권한을 확인하세요.")
         
     except Exception as e:
-        print(f"\n❌ 오류 발생: {e}")
+        print(f"\n오류 발생: {e}")
         import traceback
         traceback.print_exc()
         if connection:
@@ -264,7 +264,7 @@ def init_database():
             cursor.close()
         if connection:
             connection.close()
-            print("\n🔌 데이터베이스 연결이 종료되었습니다.\n")
+            print("\n데이터베이스 연결이 종료되었습니다.\n")
 
 if __name__ == '__main__':
     if '--help' in sys.argv or '-h' in sys.argv:
