@@ -15,11 +15,9 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="layout">
             <Navbar />
             <main className="main-content">{children}</main>
-            <footer className="footer">
-                <div className="container">
-                    <p className="footer-text">© 2025 동아리 플랫폼. All rights reserved.</p>
-                </div>
-            </footer>
+            <div className="container">
+                <p className="footer-text">© 2025 동아리 플랫폼. All rights reserved.</p>
+            </div>
         </div>
     );
 };
