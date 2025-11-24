@@ -6,7 +6,7 @@
 
 ## 설치 방법
 
-- Python 3.8+ 및 Node.js 18.0.0+가 설치되어 있어야 합니다.
+- Python 3.8+ 및 [Node.js](https://nodejs.org/ko/download) 18.0.0+가 설치되어 있어야 합니다.
 
 - MySQL 서버가 실행 중이여야 합니다.
 

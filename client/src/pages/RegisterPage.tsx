@@ -8,6 +8,21 @@ import { authAPI } from "../services/api";
 import ErrorMessage from "../components/ErrorMessage";
 import "./AuthPage.css";
 
+/**
+ * 정규식 검증 함수
+ */
+const validateStudentID = (id: string): boolean => {
+    return /^\d{11}$/.test(id);
+};
+
+const validatePhoneNumber = (phone: string): boolean => {
+    return /^01[0-9]-\d{4}-\d{4}$/.test(phone);
+};
+
+const validateEmail = (email: string): boolean => {
+    return /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+};
+
 const RegisterPage = () => {
     const [formData, setFormData] = useState({
         Student_ID: "",
@@ -36,6 +51,24 @@ const RegisterPage = () => {
         e.preventDefault();
         setError("");
 
+        // 학번 형식 검증
+        if (!validateStudentID(formData.Student_ID)) {
+            setError("학번은 11자리 숫자여야 합니다. (예: 2024156001)");
+            return;
+        }
+
+        // 전화번호 형식 검증 (입력된 경우)
+        if (formData.phone_num && !validatePhoneNumber(formData.phone_num)) {
+            setError("전화번호 형식이 올바르지 않습니다. (예: 010-1234-5678)");
+            return;
+        }
+
+        // 이메일 형식 검증 (입력된 경우)
+        if (formData.Email && !validateEmail(formData.Email)) {
+            setError("이메일 형식이 올바르지 않습니다. (예: example@tukorea.ac.kr)");
+            return;
+        }
+
         // 비밀번호 확인
         if (formData.Pw !== formData.confirmPw) {
             setError("비밀번호가 일치하지 않습니다.");
@@ -45,7 +78,15 @@ const RegisterPage = () => {
         setIsLoading(true);
 
         try {
-            const { confirmPw, ...registerData } = formData;
+            // confirmPw는 서버로 보내지 않음
+            const registerData = {
+                Student_ID: formData.Student_ID,
+                Login_ID: formData.Login_ID,
+                Pw: formData.Pw,
+                Name: formData.Name,
+                phone_num: formData.phone_num,
+                Email: formData.Email,
+            };
             await authAPI.register(registerData);
             alert("회원가입이 완료되었습니다!");
             navigate("/login");
@@ -78,7 +119,9 @@ const RegisterPage = () => {
                                 className="input"
                                 value={formData.Student_ID}
                                 onChange={handleChange}
-                                placeholder="학번을 입력하세요"
+                                placeholder="11자리 숫자 (예: 2024156001)"
+                                pattern="\d{11}"
+                                title="11자리 숫자를 입력하세요"
                                 required
                             />
                         </div>

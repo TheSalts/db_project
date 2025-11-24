@@ -6,117 +6,117 @@ USE `club_db`;
 -- 샘플 학생 데이터 (관리자 포함)
 -- 사이트 관리자
 INSERT INTO `Student` (`Student_ID`, `Login_ID`, `Pw`, `Name`, `phone_num`, `Email`, `Role`) VALUES
-('20240001', 'admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김관리', '010-1234-5678', 'admin@tukorea.ac.kr', '관리자');
+('2024156001', 'admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김관리', '010-1234-5678', 'admin@tukorea.ac.kr', '관리자');
 
 -- 동아리 관리자들 (사회분과)
 INSERT INTO `Student` (`Student_ID`, `Login_ID`, `Pw`, `Name`, `phone_num`, `Email`, `Role`) VALUES
-('20240101', 'nanum_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '최봉사', '010-1111-1111', 'nanum@tukorea.ac.kr', '일반'),
-('20240102', 'rotaract_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김로타', '010-1111-2222', 'rotaract@tukorea.ac.kr', '일반'),
-('20240103', 'masil_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이마실', '010-1111-3333', 'masil@tukorea.ac.kr', '일반'),
-('20240104', 'ccc_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '박씨씨', '010-1111-4444', 'ccc@tukorea.ac.kr', '일반'),
-('20240105', 'ouiparfum_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '정향수', '010-1111-5555', 'ouiparfum@tukorea.ac.kr', '일반'),
-('20240106', 'thetiki_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '강티키', '010-1111-6666', 'thetiki@tukorea.ac.kr', '일반');
+('2024156101', 'nanum_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '최봉사', '010-1111-1111', 'nanum@tukorea.ac.kr', '일반'),
+('2024156102', 'rotaract_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김로타', '010-1111-2222', 'rotaract@tukorea.ac.kr', '일반'),
+('2024156103', 'masil_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이마실', '010-1111-3333', 'masil@tukorea.ac.kr', '일반'),
+('2024156104', 'ccc_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '박씨씨', '010-1111-4444', 'ccc@tukorea.ac.kr', '일반'),
+('2024156105', 'ouiparfum_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '정향수', '010-1111-5555', 'ouiparfum@tukorea.ac.kr', '일반'),
+('2024156106', 'thetiki_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '강티키', '010-1111-6666', 'thetiki@tukorea.ac.kr', '일반');
 
 -- 동아리 관리자들 (학술분과)
 INSERT INTO `Student` (`Student_ID`, `Login_ID`, `Pw`, `Name`, `phone_num`, `Email`, `Role`) VALUES
-('20240111', 'seabueong_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김알고', '010-2222-1111', 'seabueong@tukorea.ac.kr', '일반'),
-('20240112', 'aram_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이아람', '010-2222-2222', 'aram@tukorea.ac.kr', '일반'),
-('20240113', 'teamnc_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '박엔써', '010-2222-3333', 'teamnc@tukorea.ac.kr', '일반'),
-('20240114', 'hyeium_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '최혜윰', '010-2222-4444', 'hyeium@tukorea.ac.kr', '일반'),
-('20240115', 'cir_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '정써클', '010-2222-5555', 'cir@tukorea.ac.kr', '일반'),
-('20240116', 'ham_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '강햄', '010-2222-6666', 'ham@tukorea.ac.kr', '일반');
+('2024156111', 'seabueong_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김알고', '010-2222-1111', 'seabueong@tukorea.ac.kr', '일반'),
+('2024156112', 'aram_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이아람', '010-2222-2222', 'aram@tukorea.ac.kr', '일반'),
+('2024156113', 'teamnc_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '박엔써', '010-2222-3333', 'teamnc@tukorea.ac.kr', '일반'),
+('2024156114', 'hyeium_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '최혜윰', '010-2222-4444', 'hyeium@tukorea.ac.kr', '일반'),
+('2024156115', 'cir_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '정써클', '010-2222-5555', 'cir@tukorea.ac.kr', '일반'),
+('2024156116', 'ham_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '강햄', '010-2222-6666', 'ham@tukorea.ac.kr', '일반');
 
 -- 동아리 관리자들 (체육분과)
 INSERT INTO `Student` (`Student_ID`, `Login_ID`, `Pw`, `Name`, `phone_num`, `Email`, `Role`) VALUES
-('20240121', 'dungkids_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김덩크', '010-3333-1111', 'dungkids@tukorea.ac.kr', '일반'),
-('20240122', 'sansaram_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이등산', '010-3333-2222', 'sansaram@tukorea.ac.kr', '일반'),
-('20240123', 'santakgu_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '박탁구', '010-3333-3333', 'santakgu@tukorea.ac.kr', '일반'),
-('20240124', 'seoseong_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '최서핑', '010-3333-4444', 'seoseong@tukorea.ac.kr', '일반'),
-('20240125', 'winners_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '정승리', '010-3333-5555', 'winners@tukorea.ac.kr', '일반'),
-('20240126', 'teamfight_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '강파이', '010-3333-6666', 'teamfight@tukorea.ac.kr', '일반'),
-('20240127', 'insane_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김인세', '010-3333-7777', 'insane@tukorea.ac.kr', '일반'),
-('20240128', 'wing_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이윙', '010-3333-8888', 'wing@tukorea.ac.kr', '일반');
+('2024156121', 'dungkids_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김덩크', '010-3333-1111', 'dungkids@tukorea.ac.kr', '일반'),
+('2024156122', 'sansaram_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이등산', '010-3333-2222', 'sansaram@tukorea.ac.kr', '일반'),
+('2024156123', 'santakgu_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '박탁구', '010-3333-3333', 'santakgu@tukorea.ac.kr', '일반'),
+('2024156124', 'seoseong_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '최서핑', '010-3333-4444', 'seoseong@tukorea.ac.kr', '일반'),
+('2024156125', 'winners_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '정승리', '010-3333-5555', 'winners@tukorea.ac.kr', '일반'),
+('2024156126', 'teamfight_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '강파이', '010-3333-6666', 'teamfight@tukorea.ac.kr', '일반'),
+('2024156127', 'insane_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김인세', '010-3333-7777', 'insane@tukorea.ac.kr', '일반'),
+('2024156128', 'wing_admin', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이윙', '010-3333-8888', 'wing@tukorea.ac.kr', '일반');
 
 -- 일반 학생들
 INSERT INTO `Student` (`Student_ID`, `Login_ID`, `Pw`, `Name`, `phone_num`, `Email`, `Role`) VALUES
-('20240201', 'student01', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김학생', '010-1234-0001', 'student01@tukorea.ac.kr', '일반'),
-('20240202', 'student02', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이학생', '010-1234-0002', 'student02@tukorea.ac.kr', '일반'),
-('20240203', 'student03', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '박학생', '010-1234-0003', 'student03@tukorea.ac.kr', '일반'),
-('20240204', 'student04', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '최학생', '010-1234-0004', 'student04@tukorea.ac.kr', '일반'),
-('20240205', 'student05', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '정학생', '010-1234-0005', 'student05@tukorea.ac.kr', '일반');
+('2024156201', 'student01', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '김학생', '010-1234-0001', 'student01@tukorea.ac.kr', '일반'),
+('2024156202', 'student02', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '이학생', '010-1234-0002', 'student02@tukorea.ac.kr', '일반'),
+('2024156203', 'student03', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '박학생', '010-1234-0003', 'student03@tukorea.ac.kr', '일반'),
+('2024156204', 'student04', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '최학생', '010-1234-0004', 'student04@tukorea.ac.kr', '일반'),
+('2024156205', 'student05', '$2b$12$dqB9kyZVZjyuLU57Z802keEQyshnPa7PYW.mJJ.mOO6iQW2/APOpC', '정학생', '010-1234-0005', 'student05@tukorea.ac.kr', '일반');
 
 -- 비밀번호: 모두 'password123' (bcrypt 해시)
 
 -- 동아리 데이터 (한국공학대학교 실제 동아리)
 -- 사회분과
 INSERT INTO `Club` (`Club_name`, `Club_Introduction`, `Category`, `Admin`) VALUES
-('나눔', '지역 사회를 위한 다양한 봉사 활동을 진행하는 동아리입니다. 환경 보호를 위한 플로깅, 독거노인 돕기 등 다양한 활동을 합니다.', '사회', '20240101'),
-('로타랙트', '국제 로타리의 청년 봉사 동아리입니다. 지역사회 봉사와 국제 교류 활동을 통해 리더십을 함양합니다.', '사회', '20240102'),
-('마실', '지역 사회와 함께하는 사회봉사 동아리입니다. 다양한 사회 공헌 활동으로 따뜻한 세상을 만들어갑니다.', '사회', '20240103'),
-('CCC', 'Campus Crusade for Christ - 기독교 대학 선교 동아리입니다. 신앙 성장과 캠퍼스 복음 전파를 목표로 합니다.', '사회', '20240104'),
-('Oui Parfum', '향수와 향에 대한 관심을 공유하는 동아리입니다. 향수 제작과 조향 체험을 통해 향의 세계를 탐구합니다.', '사회', '20240105'),
-('The Tiki', '칵테일과 바텐딩을 배우고 즐기는 동아리입니다. 다양한 칵테일 제조 기술을 익히고 파티 문화를 만들어갑니다.', '사회', '20240106');
+('나눔', '지역 사회를 위한 다양한 봉사 활동을 진행하는 동아리입니다. 환경 보호를 위한 플로깅, 독거노인 돕기 등 다양한 활동을 합니다.', '사회', '2024156101'),
+('로타랙트', '국제 로타리의 청년 봉사 동아리입니다. 지역사회 봉사와 국제 교류 활동을 통해 리더십을 함양합니다.', '사회', '2024156102'),
+('마실', '지역 사회와 함께하는 사회봉사 동아리입니다. 다양한 사회 공헌 활동으로 따뜻한 세상을 만들어갑니다.', '사회', '2024156103'),
+('CCC', 'Campus Crusade for Christ - 기독교 대학 선교 동아리입니다. 신앙 성장과 캠퍼스 복음 전파를 목표로 합니다.', '사회', '2024156104'),
+('Oui Parfum', '향수와 향에 대한 관심을 공유하는 동아리입니다. 향수 제작과 조향 체험을 통해 향의 세계를 탐구합니다.', '사회', '2024156105'),
+('The Tiki', '칵테일과 바텐딩을 배우고 즐기는 동아리입니다. 다양한 칵테일 제조 기술을 익히고 파티 문화를 만들어갑니다.', '사회', '2024156106');
 
 -- 학술분과
 INSERT INTO `Club` (`Club_name`, `Club_Introduction`, `Category`, `Admin`) VALUES
-('씨부엉', '알고리즘 및 프로그래밍 문제 해결을 중심으로 활동하는 코딩 동아리입니다. 코딩 테스트 준비와 알고리즘 공부를 함께합니다.', '학술', '20240111'),
-('아람', '한국어와 한국 문화를 탐구하는 학술 동아리입니다. 독서 토론과 글쓰기 활동을 통해 교양을 쌓습니다.', '학술', '20240112'),
-('팀엔써', 'Team&C - 협업과 창의적 문제 해결 능력을 키우는 학술 동아리입니다. 다양한 프로젝트를 통해 실무 역량을 향상시킵니다.', '학술', '20240113'),
-('혜윰', '토론과 사색을 즐기는 인문학 동아리입니다. 철학, 역사, 문학 등 다양한 주제로 깊이 있는 대화를 나눕니다.', '학술', '20240114'),
-('CIR', 'Circle of Innovation & Research - 혁신과 연구를 추구하는 학술 동아리입니다. 최신 기술 트렌드를 연구하고 공유합니다.', '학술', '20240115'),
-('HAM', '아마추어 무선 통신 동아리입니다. 무선 통신 기술을 배우고 실제 무선 교신 활동을 진행합니다.', '학술', '20240116');
+('씨부엉', '알고리즘 및 프로그래밍 문제 해결을 중심으로 활동하는 코딩 동아리입니다. 코딩 테스트 준비와 알고리즘 공부를 함께합니다.', '학술', '2024156111'),
+('아람', '한국어와 한국 문화를 탐구하는 학술 동아리입니다. 독서 토론과 글쓰기 활동을 통해 교양을 쌓습니다.', '학술', '2024156112'),
+('팀엔써', 'Team&C - 협업과 창의적 문제 해결 능력을 키우는 학술 동아리입니다. 다양한 프로젝트를 통해 실무 역량을 향상시킵니다.', '학술', '2024156113'),
+('혜윰', '토론과 사색을 즐기는 인문학 동아리입니다. 철학, 역사, 문학 등 다양한 주제로 깊이 있는 대화를 나눕니다.', '학술', '2024156114'),
+('CIR', 'Circle of Innovation & Research - 혁신과 연구를 추구하는 학술 동아리입니다. 최신 기술 트렌드를 연구하고 공유합니다.', '학술', '2024156115'),
+('HAM', '아마추어 무선 통신 동아리입니다. 무선 통신 기술을 배우고 실제 무선 교신 활동을 진행합니다.', '학술', '2024156116');
 
 -- 체육분과
 INSERT INTO `Club` (`Club_name`, `Club_Introduction`, `Category`, `Admin`) VALUES
-('덩키즈', '농구를 사랑하는 학생들의 동아리입니다. 덩크슛의 꿈을 향해 함께 성장하며 대학 리그에 참가합니다.', '체육', '20240121'),
-('산사람', '등산과 야외 활동을 즐기는 동아리입니다. 전국의 명산을 오르며 자연과 하나되는 경험을 합니다.', '체육', '20240122'),
-('산탁구', '탁구를 통해 건강과 우정을 키우는 동아리입니다. 초보자부터 상급자까지 모두 환영하며 함께 실력을 키워갑니다.', '체육', '20240123'),
-('서성', '서핑과 보드 스포츠를 즐기는 동아리입니다. 파도 위에서의 자유와 스릴을 함께 느낍니다.', '체육', '20240124'),
-('위너스', '배드민턴 동아리입니다. 승리를 향한 열정으로 함께 훈련하며 각종 대회에 출전합니다.', '체육', '20240125'),
-('팀파이트', '격투기와 무술을 배우는 동아리입니다. 체력 단련과 호신술을 익히며 정신력을 키웁니다.', '체육', '20240126'),
-('INSANE', '인라인 스케이트와 익스트림 스포츠를 즐기는 동아리입니다. 도전적이고 역동적인 활동을 추구합니다.', '체육', '20240127'),
-('WING', '배드민턴과 스쿼시를 즐기는 동아리입니다. 날아오르는 셔틀콕처럼 함께 성장합니다.', '체육', '20240128');
+('덩키즈', '농구를 사랑하는 학생들의 동아리입니다. 덩크슛의 꿈을 향해 함께 성장하며 대학 리그에 참가합니다.', '체육', '2024156121'),
+('산사람', '등산과 야외 활동을 즐기는 동아리입니다. 전국의 명산을 오르며 자연과 하나되는 경험을 합니다.', '체육', '2024156122'),
+('산탁구', '탁구를 통해 건강과 우정을 키우는 동아리입니다. 초보자부터 상급자까지 모두 환영하며 함께 실력을 키워갑니다.', '체육', '2024156123'),
+('서성', '서핑과 보드 스포츠를 즐기는 동아리입니다. 파도 위에서의 자유와 스릴을 함께 느낍니다.', '체육', '2024156124'),
+('위너스', '배드민턴 동아리입니다. 승리를 향한 열정으로 함께 훈련하며 각종 대회에 출전합니다.', '체육', '2024156125'),
+('팀파이트', '격투기와 무술을 배우는 동아리입니다. 체력 단련과 호신술을 익히며 정신력을 키웁니다.', '체육', '2024156126'),
+('INSANE', '인라인 스케이트와 익스트림 스포츠를 즐기는 동아리입니다. 도전적이고 역동적인 활동을 추구합니다.', '체육', '2024156127'),
+('WING', '배드민턴과 스쿼시를 즐기는 동아리입니다. 날아오르는 셔틀콕처럼 함께 성장합니다.', '체육', '2024156128');
 
 -- 초기 소속 데이터 (각 동아리 관리자들은 자신의 동아리 회원)
 -- 사회분과
 INSERT INTO `Belong` (`Student_ID`, `Club_ID`, `Position`) VALUES
-('20240101', 1, '회장'),
-('20240102', 2, '회장'),
-('20240103', 3, '회장'),
-('20240104', 4, '회장'),
-('20240105', 5, '회장'),
-('20240106', 6, '회장');
+('2024156101', 1, '회장'),
+('2024156102', 2, '회장'),
+('2024156103', 3, '회장'),
+('2024156104', 4, '회장'),
+('2024156105', 5, '회장'),
+('2024156106', 6, '회장');
 
 -- 학술분과
 INSERT INTO `Belong` (`Student_ID`, `Club_ID`, `Position`) VALUES
-('20240111', 7, '회장'),
-('20240112', 8, '회장'),
-('20240113', 9, '회장'),
-('20240114', 10, '회장'),
-('20240115', 11, '회장'),
-('20240116', 12, '회장');
+('2024156111', 7, '회장'),
+('2024156112', 8, '회장'),
+('2024156113', 9, '회장'),
+('2024156114', 10, '회장'),
+('2024156115', 11, '회장'),
+('2024156116', 12, '회장');
 
 -- 체육분과
 INSERT INTO `Belong` (`Student_ID`, `Club_ID`, `Position`) VALUES
-('20240121', 13, '회장'),
-('20240122', 14, '회장'),
-('20240123', 15, '회장'),
-('20240124', 16, '회장'),
-('20240125', 17, '회장'),
-('20240126', 18, '회장'),
-('20240127', 19, '회장'),
-('20240128', 20, '회장');
+('2024156121', 13, '회장'),
+('2024156122', 14, '회장'),
+('2024156123', 15, '회장'),
+('2024156124', 16, '회장'),
+('2024156125', 17, '회장'),
+('2024156126', 18, '회장'),
+('2024156127', 19, '회장'),
+('2024156128', 20, '회장');
 
 -- 일부 학생들의 동아리 가입
 INSERT INTO `Belong` (`Student_ID`, `Club_ID`, `Position`) VALUES
-('20240201', 1, '일반회원'),
-('20240201', 7, '일반회원'),
-('20240202', 2, '일반회원'),
-('20240202', 13, '일반회원'),
-('20240203', 14, '일반회원'),
-('20240203', 7, '일반회원'),
-('20240204', 17, '일반회원'),
-('20240205', 13, '일반회원');
+('2024156201', 1, '일반회원'),
+('2024156201', 7, '일반회원'),
+('2024156202', 2, '일반회원'),
+('2024156202', 13, '일반회원'),
+('2024156203', 14, '일반회원'),
+('2024156203', 7, '일반회원'),
+('2024156204', 17, '일반회원'),
+('2024156205', 13, '일반회원');
 
 -- 샘플 게시글
 -- 사회분과 게시글
@@ -142,34 +142,34 @@ INSERT INTO `Post` (`Club_ID`, `Content`, `post_date`) VALUES
 
 -- 샘플 가입 신청
 INSERT INTO `Apply` (`Student_ID`, `Club_ID`, `Self_Introduction`, `Status`) VALUES
-('20240204', 1, '안녕하세요! 봉사 활동에 관심이 많아 지원하게 되었습니다. 열심히 활동하겠습니다!', '대기'),
-('20240205', 2, '로타랙트의 국제 교류 활동에 참여하고 싶습니다. 잘 부탁드립니다!', '대기'),
-('20240204', 7, '알고리즘 공부를 체계적으로 하고 싶어 씨부엉 동아리에 지원합니다.', '대기'),
-('20240205', 14, '등산을 정말 좋아합니다. 산사람에서 함께 산을 오르고 싶습니다!', '대기'),
-('20240201', 11, 'AI와 머신러닝에 큰 관심이 있습니다. CIR에서 함께 연구하고 싶습니다.', '대기'),
-('20240202', 16, '서핑을 배우고 싶어서 지원하게 되었습니다. 열정적으로 참여하겠습니다!', '대기');
+('2024156204', 1, '안녕하세요! 봉사 활동에 관심이 많아 지원하게 되었습니다. 열심히 활동하겠습니다!', '대기'),
+('2024156205', 2, '로타랙트의 국제 교류 활동에 참여하고 싶습니다. 잘 부탁드립니다!', '대기'),
+('2024156204', 7, '알고리즘 공부를 체계적으로 하고 싶어 씨부엉 동아리에 지원합니다.', '대기'),
+('2024156205', 14, '등산을 정말 좋아합니다. 산사람에서 함께 산을 오르고 싶습니다!', '대기'),
+('2024156201', 11, 'AI와 머신러닝에 큰 관심이 있습니다. CIR에서 함께 연구하고 싶습니다.', '대기'),
+('2024156202', 16, '서핑을 배우고 싶어서 지원하게 되었습니다. 열정적으로 참여하겠습니다!', '대기');
 
 -- 샘플 댓글 데이터
 INSERT INTO `Comment` (`Post_ID`, `Student_ID`, `Content`, `created_at`) VALUES
 -- 나눔 동아리 게시글(1)에 대한 댓글
-(1, '20240201', '좋은 활동이네요! 참여하고 싶어요!', NOW() - INTERVAL 20 HOUR),
-(1, '20240202', '저도 참여할게요! 환경 보호에 동참합시다.', NOW() - INTERVAL 15 HOUR),
-(1, '20240101', '많은 관심 감사합니다! 일요일 오전 10시에 학교 정문에서 만나요.', NOW() - INTERVAL 10 HOUR),
+(1, '2024156201', '좋은 활동이네요! 참여하고 싶어요!', NOW() - INTERVAL 20 HOUR),
+(1, '2024156202', '저도 참여할게요! 환경 보호에 동참합시다.', NOW() - INTERVAL 15 HOUR),
+(1, '2024156101', '많은 관심 감사합니다! 일요일 오전 10시에 학교 정문에서 만나요.', NOW() - INTERVAL 10 HOUR),
 -- 씨부엉 동아리 게시글(5)에 대한 댓글
-(5, '20240201', '알고리즘 스터디 참여하고 싶습니다!', NOW() - INTERVAL 3 DAY),
-(5, '20240203', '백준 골드 문제 위주로 풀면 될까요?', NOW() - INTERVAL 2 DAY),
-(5, '20240111', '골드~플래티넘 난이도로 진행할 예정입니다. 많은 참여 부탁드려요!', NOW() - INTERVAL 1 DAY),
+(5, '2024156201', '알고리즘 스터디 참여하고 싶습니다!', NOW() - INTERVAL 3 DAY),
+(5, '2024156203', '백준 골드 문제 위주로 풀면 될까요?', NOW() - INTERVAL 2 DAY),
+(5, '2024156111', '골드~플래티넘 난이도로 진행할 예정입니다. 많은 참여 부탁드려요!', NOW() - INTERVAL 1 DAY),
 -- 씨부엉 동아리 게시글(6)에 대한 댓글
-(6, '20240203', '세미나 참석하겠습니다!', NOW() - INTERVAL 1 DAY),
-(6, '20240201', '유익한 주제네요. 기대됩니다!', NOW() - INTERVAL 18 HOUR),
+(6, '2024156203', '세미나 참석하겠습니다!', NOW() - INTERVAL 1 DAY),
+(6, '2024156201', '유익한 주제네요. 기대됩니다!', NOW() - INTERVAL 18 HOUR),
 -- 덩키즈 동아리 게시글(9)에 대한 댓글
-(9, '20240202', '농구 초보인데 참가해도 될까요?', NOW() - INTERVAL 20 HOUR),
-(9, '20240121', '초보자도 환영합니다! 함께 즐겁게 운동해요!', NOW() - INTERVAL 15 HOUR),
-(9, '20240205', '저도 참가할게요! 잘 부탁드립니다.', NOW() - INTERVAL 10 HOUR),
+(9, '2024156202', '농구 초보인데 참가해도 될까요?', NOW() - INTERVAL 20 HOUR),
+(9, '2024156121', '초보자도 환영합니다! 함께 즐겁게 운동해요!', NOW() - INTERVAL 15 HOUR),
+(9, '2024156205', '저도 참가할게요! 잘 부탁드립니다.', NOW() - INTERVAL 10 HOUR),
 -- 산사람 동아리 게시글(10)에 대한 댓글
-(10, '20240203', '북한산 등반 참여하고 싶습니다!', NOW() - INTERVAL 1 DAY),
-(10, '20240204', '등산 초보도 괜찮을까요?', NOW() - INTERVAL 20 HOUR),
-(10, '20240122', '초보자도 환영합니다! 천천히 올라가요.', NOW() - INTERVAL 15 HOUR);
+(10, '2024156203', '북한산 등반 참여하고 싶습니다!', NOW() - INTERVAL 1 DAY),
+(10, '2024156204', '등산 초보도 괜찮을까요?', NOW() - INTERVAL 20 HOUR),
+(10, '2024156122', '초보자도 환영합니다! 천천히 올라가요.', NOW() - INTERVAL 15 HOUR);
 
 SELECT '샘플 데이터가 성공적으로 삽입되었습니다!' AS 'Status';
 SELECT CONCAT('총 ', COUNT(*), '개의 동아리가 생성되었습니다.') AS 'Clubs' FROM `Club`;
